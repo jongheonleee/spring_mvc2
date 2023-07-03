@@ -8,7 +8,7 @@
 - 타임리프란?
   - 서버에서 HTML을 동적으로 렌더링함
   - 타임리프의 가장 큰 특징은 네츄럴 템플릿이라는 것
-  - 즉, 파일의 HTML 구조를 유지한 상태에서 코드를 삽입하는 형식
+  - 즉, 파일의 HTML 구조를 유지한 상태에서 특정 속성을 대체하는 형식
     
 - 기본 표현식
 <img width="356" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/88b24799-fd65-4b24-8cf3-5eb1ed163f4a">
