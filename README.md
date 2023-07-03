@@ -21,8 +21,14 @@
 
 - 1. 텍스트 출력
   - 크게 두 가지 방식이 있음
-  -  (1). HTML 태그의 속성을 통해 랜터링  <span th:text="${data}">
-  -  (2). 콘텐츠 영역 안에서 직접 출력  <li>컨텐츠 안에서 직접 출력하기 = [[${data}]]</li>
+  -  (1). HTML 태그의 속성을 통해 랜터링  
+      <br/>
+      <img width="427" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/62765c01-663f-447e-b1be-abf6cbf10bf3">
+
+  -  (2). 콘텐츠 영역 안에서 직접 출력
+      <br/>
+      <img width="363" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/3834f8d8-482b-4431-aaa7-2d99e074e1df">
+
 
 - 2. 변수 - SpringEL
   - 타임 리프에서의 벼수 표현식 -> "${...}"
@@ -43,7 +49,7 @@
 - 5. URL 링크
    - 타임리프에서 URL을 생성할 때 "@{...}" 문자를 사용하면 됨
 
-- 6. 리터릴
+- 6. 리터럴
   - 리터럴은 수학에서 사용하는 상수와 비슷한 개념, 즉 고정된 값을 의미함
   - 예를 들어서, String a = "Hello"; 에서 리터럴은 "Hello"이다
     <br/>
@@ -60,7 +66,10 @@
   - "th:..." 으로 사용
   - 타임리프는 주로 HTML 태그에 th:... 속성을 지정하는 방식으로 동작하는 데 th:...로 속성을 적용하면 기존 속성을 대체함
   - 기존 속성이 없으면 새로 만듦
-  - 예를 들어서 "<input type = "text" nam = "mock" th:name = "userA">" 에서 th:name이 기존의 name 속성을 대체함
+  - 예를 들어서 밑에 코드에서 th:name이 기존의 name 속성을 대체함
+    <br/>
+    <img width="411" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/93e360b2-92b4-4f55-8245-6a747d941b9d">
+
 
 - 9. 반복
   - "th:each" 를 통해 사용함, 예를 들어서 <tr th:each=”user : ${users}”>으로 사용해서 원하는 필드에 user의 속성 값을 주입할 수 있음
