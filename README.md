@@ -36,7 +36,7 @@
   - 타임 리프는 데이터를 전달 받아서 해당 데이터를 HTML에 뿌려주는 기능을 함
     - 구체적으로 말하면, Controller에서 비즈니스 로직이 처리된 데이터가 model.addAttribute(....) 저장되고
     - 타임리프가 적용된 뷰 파일은 해당 model에서 데이터를 가져와서 HTML을 동적으로 렌더링함
-  - 즉, 모델 객체의 속성을 여러가지 방식으로 접근하는 방법을 말함
+  - 모델 객체의 속성을 여러가지 방식으로 접근하는 방법을 말함
     <br/>
     <img width="334" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/e6eb5a57-1121-455c-83b3-0cc48fa4f127">
 
