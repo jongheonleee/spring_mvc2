@@ -97,9 +97,11 @@
 - 12. 블록
   - <th:block>
   - 타임리프의 특성상 HTML 태그 안에 속성으로 기능을 정의해서 사용하는데, 해당 방식으로 사용하기 애매한 경우에 블록 기능을 활용함
+    <br/>
     <img width="631" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/e01e9d21-358b-4369-850f-0ee95743b9d7">
     <br/>
     <img width="237" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/1f0d9486-dbdc-4f24-b28d-0efb199b03d8">
+    <br/>
 
 - 13. 자바스크립트 인라인
   - 해당 방식을 통해, 자바 스크립트 내에서 사용하는 코드 형식을 그대로 표현할 수 있음, 또한 객체를 JSON으로 자동 변환해줌
