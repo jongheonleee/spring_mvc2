@@ -5,6 +5,7 @@
 
 ## 1. 타임리프 - 기본 기능
 
+### 핵심 개념 및 목표
 - 타임리프란?
   - 서버에서 HTML을 동적으로 렌더링함
   - 타임리프의 가장 큰 특징은 네츄럴 템플릿이라는 것
@@ -120,4 +121,75 @@
     <br/>
     <img width="593" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/ef0c702e-9b87-46f0-99af-56e67d4540ae">
 
+
+
+## 2. 타임리프 - 기본 기능
+
+### 핵심 개념 및 목표
+
+- 스프링이 지원하는 다양한 기능을 공부하면서 스프링 MVC를 깊이 있게 이해하기
+- MVC 1 편 상품 관리 프로젝트를 기반으로 기능 붙여가면서 공부
+- 스프링과 타임리프가 통합되면서 다양한 기능을 편리하게 사용할 수 있음
+  - SpringEL 문법 통합
+  - 스프링 빈 호출 지원
+  - 편리한 폼 관리를 위한 추가 속성
+  - 폼 컴포넌트 기능(checkbox, radio. buttom, list ,,,)
+  - 스프링의 메시지, 국제화 기능의 편리한 통합
+  - 스프링의 검증, 오류 처리 통합
+  - 스프링의 반환 서비스 통합
+  
+
+## 🛠 기능
+- 1. 입력 폼 처리
+  - th:object : 커맨드 객체를 지정
+  - '*{...}' : 선택 변수 식(위에 커맨드 객체를 지정해주어야 사용할 수 있음)
+  - th:field : HTML 태그의 속성을 자동으로 처리, 즉 ‘id’, ‘name’, ‘value’ 속성을 모두 자동으로 만들어줌
+    <br/>
+    <img width="645" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/62a00f95-9449-4cb8-80c8-439f7e184ef6">
+    <br/>
+
+- 2. 단일 체크 박스
+  - 체크 박스를 사용할 경우, 문제가 있음
+  - 체크를 해제하고 form을 전송할 시 서버에 체크 필드의 값 자체가 넘어오지 않음
+  - 이를 해결하기 위해 히든 필드를 사용하지만, 개발자가 일일이 히든 필드를 생성해줘야 하는 번거로움이 있음
+  - 하지만, 타임리프를 사용하면 히든 필드와 체크값(체크되었는지 안되었는지)을 자동으로 생성해줌
+    <br/>
+    <img width="560" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/eb3cbe67-fe67-4d11-bbca-7cc0e6b58fbc">
+    <br/>
+
+- 3. 멀티 체크 박스
+  - @ModelAttribute를 통해 멀티 체크 박스를 구성하는 데이터를 반복해서 넣어줘야함
+  - 위의 작업은 컨트롤러에서 따로 메서드를 정의해서 처리할 수 있음
+    <br/>
+    <img width="480" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/1598c752-8611-41ca-af9d-3c8d3e32a3b2">
+    <br/>
+  - HTML 파일에서 해당 멀티 체크 박스를 구현할 때, 멀티 체크 박스의 이름은 같아도 되지만, id 값은 다르게 해줘야함. 이를 처리해주는 것이 "${#ids.prev('open')}" 임
+  - 해당 코드는 동적으로 생성되는 id 값을 사용할 수 있음
+    <br/>
+    <img width="630" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/5cfe13d1-99a1-49ee-a20b-4a7da250c725">
+    <br/>
+    <img width="604" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/2a2c1250-6168-4908-90d7-f568c618b117">
+    <br/>
+
     
+- 4. 라디오 버튼
+  - 여러 선택지 중에 하나를 선택할 때 사용할 수 있음, 자바 ENUM을 활용해서 개발
+  - 라디오 버튼의 경우 항상 하나를 선택하도록 되어 있기 때문에 별도의 히든 필드를 사용할 필요가 없음
+  - 위의 @ModelAttribute를 통해 여러 데이터를 넣은 것 처럼 라디오 버튼 또한 ENUM의 값들을 같은 방식으로 처리할 수도 있음
+      <br/>
+      <img width="273" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/2f2eed52-6913-4342-9c46-76019e211aae">
+      <br/>
+  - 또한, 타임리프로 자바 객체에 직접 접근하는 방법이 있음, 즉 타임리프로 ENUM 객체에 직접 접근하여 사용할 수 있음(스프링 EL 문법임). 하지만 해당 방식은 권장하는 방식이 아님
+    <br/>
+    <img width="644" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/b90ba235-038f-42f9-a0cc-e2da15161c39">
+    <br/>
+
+- 5. 셀렉트 박스
+  - 여러 선택지 중에 하나를 선택할 때 사용하는 기능. 자바 객체를 활용해서 개발해보기
+    <br/>
+    <img width="524" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/d0f69105-0ce9-4eda-b9f7-3e44dc28e1c1">
+    <br/>
+    <img width="657" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/955f988e-8d6b-4b0e-b917-ace676554e8b">
+    <br/>
+
+
