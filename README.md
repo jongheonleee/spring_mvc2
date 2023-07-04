@@ -142,7 +142,7 @@
 ## 🛠 기능
 - 1. 입력 폼 처리
   - th:object : 커맨드 객체를 지정
-  - '*{...}' : 선택 변수 식(위에 커맨드 객체를 지정해주어야 사용할 수 있음)
+  - '*{...}' : 선택 변수 식(위에 커맨드 객체를 지정해주면 객체의 이름없이 특정 필드의 이름으로 사용할 수 있음, 예를 들어서 *{name})
   - th:field : HTML 태그의 속성을 자동으로 처리, 즉 ‘id’, ‘name’, ‘value’ 속성을 모두 자동으로 만들어줌
     <br/>
     <img width="645" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/62a00f95-9449-4cb8-80c8-439f7e184ef6">
