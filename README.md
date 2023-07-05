@@ -202,11 +202,13 @@
   - 주로 messages.properties 라는 관리용 파일을 만들어서 보관함(위치 : /resources/messages.peoperties)
   - 이를 통해서 변경에 유연하게 대처할 수 있음(변경이 일어나면 해당 괸리용 파일에서 변경이 일어난 부분을 찾아서 수정해주면됨)
 <br/>
+
 - "국제화 기능" 이란?
   - 메시지 기능에서 설명한 메시지 파일(messages.properties)을 각 나라별로 관리하면 서비스를 국제화 할 수 있음
   - 예를 들어서, message_en.properties -> 영어권, message_ko.properties -> 한국
   - 따라서, 사용자가 사용하는 언어에 맞춰서 메시지를 해당 언어로 표현할 수 있음
 <br/>
+
 - 스프링의 경우 메시지와 국제화 기능을 기본적으로 제공함
 <br/>
 
