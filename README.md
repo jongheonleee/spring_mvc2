@@ -125,7 +125,7 @@
 
 
 
-## 2. 타임리프 - 기본 기능
+## 2. 타임리프 - 스프링 통합과 폼
 
 ### 핵심 개념 및 목표
 
@@ -194,4 +194,48 @@
     <img width="657" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/955f988e-8d6b-4b0e-b917-ace676554e8b">
     <br/>
 
+## 3. 메시지, 국제화
 
+### 핵심 개념 및 목표
+- "메시지 기능" 이란?
+  - HTML 파일에 메시지가 하드코딩 되어서 유지보수의 어려움을 막기 위해, 다양한 메시지를 한 곳에서 관리하도록 하는 기능
+  - 주로 messages.properties 라는 관리용 파일을 만들어서 보관함(위치 : /resources/messages.peoperties)
+  - 이를 통해서 변경에 유연하게 대처할 수 있음(변경이 일어나면 해당 괸리용 파일에서 변경이 일어난 부분을 찾아서 수정해주면됨)
+<br/>
+- "국제화 기능" 이란?
+  - 메시지 기능에서 설명한 메시지 파일(messages.properties)을 각 나라별로 관리하면 서비스를 국제화 할 수 있음
+  - 예를 들어서, message_en.properties -> 영어권, message_ko.properties -> 한국
+  - 따라서, 사용자가 사용하는 언어에 맞춰서 메시지를 해당 언어로 표현할 수 있음
+<br/>
+- 스프링의 경우 메시지와 국제화 기능을 기본적으로 제공함
+<br/>
+
+## 📝 메시지와 국제화 기능 사용법
+- 1. 스프링 메시지 소스 설정
+  - MessageSource(인터페이스, 실질적으로 해당 인터페이스의 구현체인 ResourceBundleMessageSource를 등록함)를 스프링 빈으로 등록하기
+    <br/>
+    <img width="676" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/8083ae09-e9a3-4eac-8d7c-61eed5331f7b">
+    - basenames을 통해서 설정 파일의 이름을 지정함, 예를 들어서 위의 사진 처럼 setBaesenames("massages")라고 하면 messages.properties를 읽어서 사용함
+    - 국제화 기능의 경우 xxx_en.properties, xxx_ko.properties 형식으로 제공하면 됨
+    - 스프링 부트를 사용하면 MessageSource가 자동으로 스프링 빈으로 등록됨
+    - 스프링 부투 메시지 소스 설정의 경우 application.properties에서 "spring.messages.basename = messages ,,, " 형식으로 작성하면됨(기본값 : spring.messages.basename = messages)
+    - 즉, 위에 처럼 application.properties에 메시지 관리용 파일을 등록하면 자동으로 메시지, 국제화가 인식됨
+
+- 2. MessageSource
+  - MessageSource 인터페이스
+    <br/>
+    <img width="644" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/c9f3448c-be57-4039-9052-a96fb32c505b">
+    <br/>
+    - 위의 인터페이스를 통해 알 수 있는 것은 코드를 포함한 일부 파라미터로 메시지를 읽어오는 기능을 제공함
+    - MessageSource.getMessage(CODE, ,,,) -> CODE로 등록된 메시지를 읽어와서 문자열로 반환해줌
+    
+  
+- 3. LocaleResolver
+  - 스프링도 Locale 정보를 알아야 국제화 기능을 사용할 수 있음, 언어를 선택할 수 있다는 뜻
+  <br/>
+  ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b5006b64-9ca5-4b0f-acdc-37b6a07eab14/Untitled.png)
+  <br/>
+  - LocaleResolver는 Locale 선택 방식을 변경할 수 있도록 도와주는 인터페이스(스프링 부트는 기본으로 AcceptHeaderLocaleResolver를 사용함)
+    - 만약 Locale 선택 방식을 변경하려면 LcaleResolver의 구현체를 변경해야함
+      
+  
