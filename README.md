@@ -220,7 +220,7 @@
     - basenames을 통해서 설정 파일의 이름을 지정함, 예를 들어서 위의 사진 처럼 setBaesenames("massages")라고 하면 messages.properties를 읽어서 사용함
     - 국제화 기능의 경우 xxx_en.properties, xxx_ko.properties 형식으로 제공하면 됨
     - 스프링 부트를 사용하면 MessageSource가 자동으로 스프링 빈으로 등록됨
-    - 스프링 부투 메시지 소스 설정의 경우 application.properties에서 "spring.messages.basename = messages ,,, " 형식으로 작성하면됨(기본값 : spring.messages.basename = messages)
+    - 스프링 부트 메시지 소스 설정의 경우 application.properties에서 "spring.messages.basename = messages ,,, " 형식으로 작성하면됨(기본값 : spring.messages.basename = messages)
     - 즉, 위에 처럼 application.properties에 메시지 관리용 파일을 등록하면 자동으로 메시지, 국제화가 인식됨
 
 - 2. MessageSource
@@ -233,9 +233,9 @@
     
   
 - 3. LocaleResolver
-  - 스프링도 Locale 정보를 알아야 국제화 기능을 사용할 수 있음, 언어를 선택할 수 있다는 뜻
+  - 스프링도 Locale 정보를 알아야 국제화 기능을 사용할 수 있음, Locale 정보를 알아야 특정 언어를 선택할 수 있다는 뜻
   <br/>
-  ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b5006b64-9ca5-4b0f-acdc-37b6a07eab14/Untitled.png)
+  <img width="522" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/1c1121e7-3ba2-4fc7-b331-bd79cfb6bd16">
   <br/>
   - LocaleResolver는 Locale 선택 방식을 변경할 수 있도록 도와주는 인터페이스(스프링 부트는 기본으로 AcceptHeaderLocaleResolver를 사용함)
     - 만약 Locale 선택 방식을 변경하려면 LcaleResolver의 구현체를 변경해야함
