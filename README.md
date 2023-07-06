@@ -237,7 +237,64 @@
   <br/>
   <img width="522" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/1c1121e7-3ba2-4fc7-b331-bd79cfb6bd16">
   <br/>
+  
   - LocaleResolver는 Locale 선택 방식을 변경할 수 있도록 도와주는 인터페이스(스프링 부트는 기본으로 AcceptHeaderLocaleResolver를 사용함)
     - 만약 Locale 선택 방식을 변경하려면 LcaleResolver의 구현체를 변경해야함
+
+
+## 4. 검증1
+
+
+### 핵심 개념 및 목표
+- 웹 서비스는 폼 입력시 오류가 발생하면, 고객이 입력한 데이터를 유지한체 어떤 오류가 발생했는지 알려주어야함
+- 컨트롤러의 중요한 역할 중 하나는 HTTP 요청이 정상인지 검증하는 것임, 앞으로 HTTP 요청 검증을 배울것임
+- 검증 성공 요청 흐름
+  <br/>
+  <img width="486" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/f79afc8c-f17a-4fbb-b3aa-8a8e06b0f6a5">
+  <br/>
+
+- 검증 실패 요청 흐름
+  <br/>
+  <img width="481" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/b5bf6ca0-33c4-49c0-b5fa-fdfbc9238c1e">
+  <br/>
+
+
+## 📝 검증 기능 사용법
+
+- 1. 검증 처리 방식, 크게 2가지 방식이 있음 -> 직접 처리/ BindingResult(FieldError & ObjectError)
+
+- 1-1. 직접 처리 과정
+  - 컨트롤러 내부에서 검증 로직을 삽입하여 검증 에러가 발생하면 저장함
+  - 저장된 에러 내용을 model.addAttribute(,,,)에 담아서 다시 입력 폼으로 보냄
+    
+    <br/>
+    <img width="593" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/97f7db7a-d409-4399-97e3-b2ccb341d8a1">
+    <br/>
+
+    <img width="412" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/c66c9aab-899d-43a8-997b-867c4872dedc">
+    <br/>
+    
+  - 하지만, 직접 처리 방식은 문제점들이 있음
+    - 타입 오류 처리가 안됨
+    - 클라이언트가 입력한 정보를 바인딩할 수 없음, 즉 클라이언트가 입력한 값도 어딘가에 별도로 관리해야함
+
+- 1-2. 스프링이 제공하는 검증 방식 -> BindingResult
+
+  - 직접 처리 과정과는 다르게, 단순하게 자료구조로 에러 정보를 저장하는 것이 아닌 BindingResult 구현체에 저장함
+  - BindingResult는 검증 오류를 보관하는 인터페이스임, 해당 객체를 사용하면 @ModelAttribute에 바인딩 시 타입 오류가 발생해도 컨트롤러가 호출됨(사용하지 않는 경우는 400오류 페이지 발생)
+  - BindingResult에 검증 오류를 적용하는 방법은 3가지가 있음 -> 
+  
+  <br/>
+  <img width="679" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/679c7759-8c22-4282-b33f-6219089edec5">
+  <br/>
+  - 필드에 오류가 있으면 FieldError 객체를 생성해서 bindingResult에 담아두면됨, 글로벌 오류의 경우 ObjectError 객체 생성해서 담아주기
+  - 타임리프는 스프링의 BindingResult를 활용해서 편리하게 검증 오류를 표현함
+    - @ModelAttribute의 객체에 타입 오류 등으로 바인딩이 실패하는 경우 스프링이 FieldError 생성해서 BindingResult에 넣어줌
+    - 개발자가 직접 작성
+    - Validator 사용
+    
+    <br/>
+    <img width="401" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/f102b028-23b8-4b5c-8dbf-1961a1541420">
+    <br/>
       
   
