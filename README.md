@@ -282,19 +282,18 @@
 
 - 2. 스프링이 제공하는 검증 방식 -> BindingResult
 
-  - 직접 처리 과정과는 다르게, 단순하게 자료구조로 에러 정보를 저장하는 것이 아닌 BindingResult 구현체에 저장함
-  - BindingResult는 검증 오류를 보관하는 인터페이스임, 해당 객체를 사용하면 @ModelAttribute에 바인딩 시 타입 오류가 발생해도 컨트롤러가 호출됨(사용하지 않는 경우는 400오류 페이지 발생)
-  - BindingResult에 검증 오류를 적용하는 방법은 3가지가 있음
-  
   <br/>
   <img width="679" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/679c7759-8c22-4282-b33f-6219089edec5">
   <br/>
-  
-  - 필드에 오류가 있으면 FieldError 객체를 생성해서 bindingResult에 담아두면됨, 글로벌 오류의 경우 ObjectError 객체 생성해서 담아주기
-  - 타임리프는 스프링의 BindingResult를 활용해서 편리하게 검증 오류를 표현함
+
+  - 직접 처리 과정과는 다르게, 단순하게 자료구조로 에러 정보를 저장하는 것이 아닌 BindingResult 구현체에 저장함
+  - BindingResult는 검증 오류를 보관하는 인터페이스임, 해당 객체를 사용하면 @ModelAttribute에 바인딩 시 타입 오류가 발생해도 컨트롤러가 호출됨(사용하지 않는 경우는 400오류 페이지 발생)
+  - BindingResult에 검증 오류를 적용하는 방법은 3가지가 있음
     - @ModelAttribute의 객체에 타입 오류 등으로 바인딩이 실패하는 경우 스프링이 FieldError 생성해서 BindingResult에 넣어줌
     - 개발자가 직접 작성
-    - Validator 사용
+    - Validator 사용 
+  - 필드에 오류가 있으면 FieldError 객체를 생성해서 bindingResult에 담아두면됨, 글로벌 오류의 경우 ObjectError 객체 생성해서 담아주기
+  - 타임리프는 스프링의 BindingResult를 활용해서 편리하게 검증 오류를 표현함
     
     <br/>
     <img width="401" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/f102b028-23b8-4b5c-8dbf-1961a1541420">
