@@ -298,5 +298,23 @@
     <br/>
     <img width="401" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/f102b028-23b8-4b5c-8dbf-1961a1541420">
     <br/>
-      
-  
+
+
+- 3. 오류 코드와 메시지 처리
+  - 오류 메시지를 체계적으로 다루기 위함(일관성있게 관리하기)
+  - errors.properties라는 별도의 파일로 관리해줌(물론, 스프링 부트가 해당 메시지 파일을 인식할 수 있게 설정해줘야함)
+    <br/>
+    <img width="517" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/32ebe660-cab1-4de1-8c84-5d8e1d8d9fac">
+    <br/>
+    <img width="627" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/6fba465d-07d7-47aa-b0d2-0355ea3be887">
+    <br/>
+    <img width="574" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/909284d6-1a21-46bc-8b59-0dabae0e1ca0">
+    <br/>
+  - 위의 작업을 rejectValue()를 통해 간단하게 할 수 있음(MessageCodesResolver)
+  - 메시지를 범용성으로 사용하다가, 세밀하게 작성해야 하는 경우에는 세밀한 내용이 적용되도록 메시지에 단꼐를 두는 방법을 활용함
+    <br/>
+    <img width="303" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/6f8dfac0-7b84-4b51-8cf9-f895770a7a6b">
+    <br/>
+
+  - MessageCodesResolver는 검증 오류 코드로 메시지 코드를 생성함(Validator 분리1 읽기)
+
