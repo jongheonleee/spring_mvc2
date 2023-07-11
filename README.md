@@ -343,7 +343,7 @@
   - 글로벌 Validator가 적용된 경우 @Valid, @Validated만 적용해주면 됨
   - 검증 순서를 보면 "@ModelAttribute → 각각의 필드 타입 변환 시도 → 변환에 성공한 필드만 BeanValidation 적용"
     <br/>
-  <img width="466" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/2b38b4d1-475b-4d09-b03a-a02201204ed2">
+  - <img width="466" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/2b38b4d1-475b-4d09-b03a-a02201204ed2">
     <br/>
 
      
