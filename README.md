@@ -345,5 +345,37 @@
     <br/>
   - <img width="466" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/2b38b4d1-475b-4d09-b03a-a02201204ed2">
     <br/>
+  - 하지만, 해당 방식은 서버로 전달되는 데이터는 여러 가지 정보를 담고 있고 또 차리해야 하는 작업의 특징이 다르기 때문에 한계가있음
+    - 예를 들어서 등록에서 검증해야 하는 부분이 있고 수정에서 검증해야 하는 부분이 있음
+    - 이를 고려하지 않고 동일한 객체에 beanValidation을 사용하는 경우 검증 조건의 충돌이 발생함
 
-     
+- 2. 검증 조건의 충돌을 막기 위한 2가지 방식
+  - 2-1. groups 활용, 전달되는 데이터 모델에서 검증이 필요한 필드에 groups 파라미터를 통해 어떤 검증 단계에서 필요한지 세분화함
+  - 하지만 위의 방식은 실무에서 주로 사용하지 않음, 실무에서 다루는 데이터는 단순히 데이터 모델의 정보뿐만이 아니라 다양한 정보도 같이 넘어옴
+
+  - 2-2. 특정 작업을 위한 별도의 모델 객체 활용
+  - 해당 방식은 복잡한 폼의 데이터를 컨트롤러까지 전달할 별도의 객체를 만들어서 전달함
+  - HTML Form -> ItemSaveForm -> Controller -> Item -> Repository 형식으로 데이터가 전달됨
+  - Item 이라는 데이터 모델 자체를 직접 쓰는 것이 아니라 ItemSaveForm이라는 별도의 클래스를 사용함, 이러한 이유는 Form을 통해 전송되는 다양한 데이터를 처리하기 위함이고 Controller를 통해서 Item 을 생성해서 저장함
+  - 따라서 별도의 클래스에 검증 로직을 넣어주고 원본 데이터는 그대로 유지함
+    - 원본 데이터 모델
+      <br/>
+      <img width="563" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/fc470c5b-d266-4c6c-8571-c5a3a9984b94">
+      <br/>
+    
+    - 등록 전용 데이터 모델
+      <br/>
+      <img width="327" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/f0565ef3-f6bf-48f2-b1d7-01e2f8d1cbde">
+      <br/>
+  
+    - 수정 전용 데이터 모델
+      <br/>
+      <img width="343" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/46eb06ef-5f74-45d0-ae0b-955428c40a2e">
+      <br/>
+
+    - 컨트롤러 비즈니스 로직 처리
+      <br/>
+      <img width="659" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/c12a560e-3636-4b73-bf11-0cf24779a40a">
+      <br/>
+      <img width="638" alt="image" src="https://github.com/jongheonleee/spring_mvc2/assets/87258372/c1aed7a0-5d31-4a02-868d-b84fb6ed57a4">
+      <br/>
